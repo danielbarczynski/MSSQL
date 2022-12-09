@@ -1,5 +1,4 @@
 -- unique key
-
 CREATE TABLE Persons
 (
     ID int NOT NULL UNIQUE,
@@ -9,7 +8,6 @@ CREATE TABLE Persons
 );
 
 -- many unique keys
-
 CREATE TABLE Persons2
 (
     ID int NOT NULL,
@@ -30,7 +28,6 @@ GO;
 exec nazwiska
 
 -- trigger
-
 CREATE TABLE Orders
 (
     OrdID INT,
@@ -70,7 +67,6 @@ select *
 from students
 
 -- subquery
-
 select *
 from students
 where student_id in
@@ -79,25 +75,21 @@ from student_grades)
 -- podzapytanie jest kompilowane pierwsze
 
 -- aggregate function
-
 select COUNT(surname)
 from students
 
 -- scalar function
-
 SELECT lower(surname)
 FROM students
 select UPPER(surname)
 from students
 
 -- copy
-
 Select *
 into studentcopy
 from students
 
 -- empty table from existing table
-
 select *
 into studentcopy2
 from studentcopy
@@ -106,7 +98,6 @@ select *
 from studentcopy2
 
 -- fetching common records from 2 tables
-
     select student_id
     from students
 intersect
@@ -121,13 +112,11 @@ select SUBSTRING(surname, 1,5)
 from students
 
 -- operator for pattern matching = LIKE
-
 select *
 from students
 where surname like '%n'
 
 -- increase all empl income by 5%
-
 create table emplyees
 (
     empId int primary key,
