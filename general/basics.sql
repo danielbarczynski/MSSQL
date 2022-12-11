@@ -105,7 +105,6 @@ intersect
     from student_grades
 
 -- fetch first 5 characters from row
-
 select *
 from students
 select SUBSTRING(surname, 1,5)

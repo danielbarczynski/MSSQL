@@ -84,7 +84,9 @@ delete from Persons2 where FirstName is null
 
 go
 create procedure sel
-as select * from Persons2 
+as
+select *
+from Persons2 
 
 sel
 
@@ -97,8 +99,29 @@ update Persons2
 set HobbyId = null
 where FirstName = 'Alex'
 
-select * from Persons2
+select *
+from Persons2
 where HobbyId in (
-    select Id from Hobbies
+    select Id
+from Hobbies
 )
 
+-- aggregate function
+select count (Age) as Columns
+from Persons2
+
+-- scalar function
+select upper (FirstName) as Columns
+from Persons2
+
+-- copy
+select *
+into PersonsCopy
+from Persons2
+
+select *
+from PersonsCopy
+
+--like
+select * from Hobbies
+where HobbyName like '%a%'
