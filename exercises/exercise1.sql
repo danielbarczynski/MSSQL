@@ -1,10 +1,21 @@
 -- constraint
-create table Persons2
+create table Persons4
 (
     Id int not null,
     FirstName varchar (30),
     Age int,
     constraint NewConstr unique (Id, FirstName)
+)
+
+-- foreign key with delete and action
+create table Persons5
+(
+    Id int identity primary key,
+    FirstName varchar (30),
+    Age int,
+    HobbyId int,
+    foreign key (HobbyId) references Hobbies (Id)
+    on delete cascade on update no action
 )
 
 insert into Persons2
@@ -82,11 +93,14 @@ where FirstName = 'Alex'
 -- delete rows
 delete from Persons2 where FirstName is null
 
+-- procedure with order by
 go
 create procedure sel
 as
 select *
 from Persons2 
+order by Age
+go
 
 sel
 
