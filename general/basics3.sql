@@ -249,9 +249,8 @@ SELECT *
 FROM sys.[views]
 WHERE name = 'v_NowyWidok'
 GO
+
 --	utworzenie widoku o nazwie v_NowyWidok
-
-
 CREATE VIEW [dbo].[v_NowyWidok]
 AS
 
@@ -266,8 +265,8 @@ AS
 	WHERE Rezerwacje.PokojID IS NOT NULL
 	GROUP BY Klienci.ID,Klienci.Imie + ' ' + Klienci.Nazwisko, RodzajPokoju.Nazwa
 GO
---	odpytujemy widok
 
+--	odpytujemy widok
 SELECT *
 FROM v_NowyWidok
 
@@ -299,8 +298,8 @@ EXECUTE DodajKlienta 'Adam', 'Wawrzyniak', '89051523243', 'adamos89@buziaczek.pl
 SELECT *
 FROM Klienci
 GO
---Poni¿ej przyk³ad definicji procedury z dwoma typami parametrów (wejœciowymi i wyjœciowymi - OUTPUT)
 
+--Poni¿ej przyk³ad definicji procedury z dwoma typami parametrów (wejœciowymi i wyjœciowymi - OUTPUT)
 CREATE PROCEDURE ListaKlientów
 	@Imie nvarchar (50),
 	@Nazwisko nvarchar (100),
@@ -308,8 +307,8 @@ CREATE PROCEDURE ListaKlientów
 AS
 BEGIN
 	SET NOCOUNT ON
-	-- wy³¹czenie wyœwietlania liczby przetworzonych rekordów
 
+	-- wy³¹czenie wyœwietlania liczby przetworzonych rekordów
 	SET @Liczba = (SELECT COUNT(*)
 	FROM Klienci
 	WHERE Imie LIKE @Imie
@@ -325,8 +324,6 @@ END
 DECLARE @Liczba INT
 EXEC ListaKlientów 'A%', '%', @Liczba OUTPUT
 SELECT @Liczba
-
-
 
 -- CREATE FUNCTION Nazwa_Funkcji
 -- (
@@ -358,8 +355,8 @@ FROM Rezerwacje
 WHERE
 		Rezerwacje.PokojID = @PokojID
 GO
---	tworzymy funkcjê skalarn¹ która zwróci Nam informacjê kto ostatnio wynajmowa³ wskazany pokój
 
+--	tworzymy funkcjê skalarn¹ która zwróci Nam informacjê kto ostatnio wynajmowa³ wskazany pokój
 CREATE FUNCTION NowaFunkcjaSkalarna
 	(@PokojID INT)
 RETURNS NVARCHAR (300)
@@ -385,7 +382,6 @@ SELECT *
 FROM NowaFunkcjaTabelaryczna(104)
 
 -- skalarnej
-
 SELECT [dbo].[NowaFunkcjaSkalarna] (103)
 
 SELECT [dbo].[NowaFunkcjaSkalarna] (104)
@@ -409,8 +405,8 @@ WHERE
 	AND DataRezerwacji >= @Data
 
 GO
---	odpytywanie zmodyfikowanej funkcji
 
+--	odpytywanie zmodyfikowanej funkcji
 SELECT *
 FROM NowaFunkcjaTabelaryczna(103, '2017-09-28')
 
@@ -419,7 +415,6 @@ FROM NowaFunkcjaTabelaryczna(103, '2017-09-28')
 --mieæ takie kolumny jak: ID, Nazwa, Opis, DataZnalezienia, PokojID,
 --Pracownik, CzyOdebrano. Zwróæ uwagê które z kolumn nie powinny móc
 --przyjmowaæ wartoœci NULL.
-
 CREATE TABLE [dbo].[Zguby]
 (
 	[ID] [int] PRIMARY KEY,
@@ -462,15 +457,15 @@ FROM Zguby
 --c)	Utwórz Funkcjê tabelaryczn¹ która na podstawie trzech parametrów: 
 --Daty pocz¹tkowej, Daty koñcowej oraz fragmentu opisu bêdzie przeszukiwaæ
 --tabelê Zguby w poszukiwaniu informacji wg zadanych przez u¿ytkownika parametrów.
-GO
-CREATE FUNCTION FunkcjaTabelaryczna
-	(@PokojID INT)
-RETURNS TABLE 
-AS
-RETURN
+-- GO
+-- CREATE FUNCTION FunkcjaTabelaryczna
+-- 	(@PokojID INT)
+-- RETURNS TABLE 
+-- AS
+-- RETURN
 
-SELECT Zguby.DataZnalezienia,
-	Zguby.Opis, 
+-- SELECT Zguby.DataZnalezienia,
+-- 	Zguby.Opis,  
 
 -- FROM
 -- 	JOIN ON

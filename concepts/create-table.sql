@@ -12,6 +12,3 @@ insert into Persons values
     (3, 'Alex', 20)
 
 select * from Persons
-
-drop table Persons
-drop database test

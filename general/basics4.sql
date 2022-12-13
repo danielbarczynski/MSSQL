@@ -58,7 +58,6 @@ SELEcT *
 FROM Pracownicy
 
 -- Wyœwietlamy informacje o pracownika i o ich prze³o¿onych
-
 SELECT
 	[P1].[ID] ,
 	[P1].[Imie] ,
@@ -102,13 +101,11 @@ FROM Cyferki AS [t1]
 -- WHERE condition;
 
 -- Wyœwietl wszystkie informacje o pokojach i ich rodzaju
-
 SELECT *
 FROM Pokoje
 	LEFT JOIN RodzajPokoju ON RodzajPokoju.ID = Pokoje.RodzajPokojID
 
 -- Wyœwietl najni¿sz¹ cenê za pokój w standardzie Ekonomicznym
-
 SELECT MIN(Cena) AS Najnizsza
 FROM Pokoje
 	LEFT JOIN RodzajPokoju ON RodzajPokoju.ID = Pokoje.RodzajPokojID
@@ -120,7 +117,6 @@ FROM Pokoje
 WHERE RodzajPokojID = 2
 
 --Wyœwietl najwy¿sz¹ cenê za Apartament
-
 SELECT MAX(Cena) AS Najwyzsza
 FROM Pokoje
 	LEFT JOIN RodzajPokoju ON RodzajPokoju.ID = Pokoje.RodzajPokojID
@@ -136,7 +132,6 @@ WHERE MaxLiczbaOsob = 4
 
 
 --Wyœwietla Imiona klientów które koñcz¹ siê na "a" oraz sumê ID dla ka¿dej z grupy imion, dodatkowo wyniki s¹ posortowane po kolumnie Imiê
-
 SELECT Imie, SUM(ID) AS Suma
 FROM Klienci
 WHERE Imie LIKE '%a'
@@ -144,7 +139,6 @@ GROUP BY Imie
 Order BY Imie ASC
 
 --Wyœwietla Nazwy rodzaju pokoju wraz ze œredni¹ za taki pokój
-
 SELECT RodzajPokoju.Nazwa, AVG(Cena), COUNT(*)
 FROM Pokoje
 	LEFT JOIN RodzajPokoju ON RodzajPokoju.ID = Pokoje.RodzajPokojID
@@ -152,7 +146,6 @@ GROUP BY RodzajPokoju.Nazwa
 ORDER BY AVG(Cena) ASC
 
 --Poni¿szy fragment kodu nie zadzia³a – pytanie dlaczego?
-
 SELECT ID, Imie, Nazwisko
 FROM Klienci
 WHERE Imie LIKE '%a'
