@@ -2,7 +2,7 @@ go
 create procedure sel
 as
 select *
-from Persons2
+from Persons
 order by Age
 go
 

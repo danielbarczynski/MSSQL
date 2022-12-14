@@ -1,5 +1,5 @@
 -- normal insert into
-insert into Persons2
+insert into Persons
 values
     (4, 'Miki', 70, 3),
     (5, 'Aki', 30, 3)
@@ -12,7 +12,7 @@ values
     ('Gym')
 
 -- insert into column (must be at least Id column) --! bad practice - use update
-insert into Persons2
+insert into Persons
     (Id, HobbyId)
 values
     (1, 1),

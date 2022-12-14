@@ -1,12 +1,12 @@
-alter table Persons2
+alter table Persons
 add HobbyId int
 
-alter table Persons2
+alter table Persons
 drop column Hobby
 
 go
 alter view SimpleView
 as
     select *
-    from Persons2
+    from Persons
     where Age < 40

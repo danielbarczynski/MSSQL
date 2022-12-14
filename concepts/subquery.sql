@@ -1,10 +1,10 @@
 -- subquery (podzapytanie jest kompilowane pierwsze)
-update Persons2
+update Persons
 set HobbyId = null
 where FirstName = 'Alex'
 
 select *
-from Persons2
+from Persons
 where HobbyId in (
     select Id
 from Hobbies

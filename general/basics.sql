@@ -8,7 +8,7 @@ CREATE TABLE Persons
 );
 
 -- many unique keys
-CREATE TABLE Persons2
+CREATE TABLE Persons
 (
     ID int NOT NULL,
     LastName varchar(255) NOT NULL,

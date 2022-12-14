@@ -1,0 +1,3 @@
+-- @ is for a local variable
+-- @@ is for a global variable or function.
+-- There are several standard global variables or functions, e.g.: @@IDENTITY, @@ROWCOUNT, @@TRANCOUNT

@@ -18,7 +18,7 @@ create table Persons5
     on delete cascade on update no action
 )
 
-insert into Persons2
+insert into Persons
 values
     (1, 'Daiel', 23),
     (2, 'Jack', 44),
@@ -29,7 +29,7 @@ go
 create procedure PersonAge
 as
 select Age
-from Persons2
+from Persons
 
 PersonAge
 drop procedure PersonAge
@@ -50,14 +50,14 @@ select dbo.AddNumber(40, 66)
 drop function AddNumber
 
 -- alter table
-alter table Persons2
+alter table Persons
 add HobbyId int
 
-alter table Persons2
+alter table Persons
 drop column Hobby
 
 select *
-from Persons2
+from Persons
 
 -- new table
 create table Hobbies
@@ -74,7 +74,7 @@ values
     ('Gym')
 
 -- insert into column (must be at least Id column) --! bad practice - use update
-insert into Persons2
+insert into Persons
     (Id, HobbyId)
 values
     (1, 1),
@@ -82,39 +82,39 @@ values
     (3, 2)
 
 -- update/add values
-update Persons2
+update Persons
 set HobbyId = 2
 where Id > 1 and Id < 4
 
-update Persons2
+update Persons
 set Age = 25
 where FirstName = 'Alex'
 
 -- delete rows
-delete from Persons2 where FirstName is null
+delete from Persons where FirstName is null
 
 -- procedure with order by
 go
 create procedure sel
 as
 select *
-from Persons2 
+from Persons
 order by Age
 go
 
 sel
 
 -- add foreign key
-alter table Persons2
+alter table Persons
 add foreign key (HobbyId) references Hobbies (Id)
 
 -- subquery (podzapytanie jest kompilowane pierwsze)
-update Persons2
+update Persons
 set HobbyId = null
 where FirstName = 'Alex'
 
 select *
-from Persons2
+from Persons
 where HobbyId in (
     select Id
 from Hobbies
@@ -122,20 +122,21 @@ from Hobbies
 
 -- aggregate function
 select count (Age) as Columns
-from Persons2
+from Persons
 
 -- scalar function
 select upper (FirstName) as Columns
-from Persons2
+from Persons
 
 -- copy
 select *
 into PersonsCopy
-from Persons2
+from Persons
 
 select *
 from PersonsCopy
 
 --like
-select * from Hobbies
+select *
+from Hobbies
 where HobbyName like '%a%'

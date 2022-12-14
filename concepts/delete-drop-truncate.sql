@@ -5,17 +5,17 @@
 -- Delete is slower than truncate
 -- ROLLBACK is possible with DELETE
 delete from
-    Persons2
+    Persons
 where
     Id > 10
-    
+
 -- DROP
 -- DDL COMMAND
 -- Delete the entire structure or schema
 -- We can't use where clause with drop
 -- Drop is slower than DELETE & TRUNCATE
 -- ROLLBACK IS NOT POSSIBLE WITH DROP
-drop table Persons2
+drop table Persons
 drop database test
 drop function AddNumber
 
