@@ -21,3 +21,13 @@ where age > all
 (
 select age from people2
 )
+
+-- The EXISTS operator is used to test for the existence of any record in a subquery.
+-- The EXISTS operator returns TRUE if the subquery returns one or more records.
+-- empty or full table; true or false
+select * from people1
+where exists
+(
+    select * from people2
+    where age > 30
+)
