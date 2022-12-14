@@ -20,6 +20,16 @@ union
     from employees
 order by surname desc
 
+-- multiple union on different columns
+    select surname multiunion
+    from students
+union
+    select PESEL
+    from employees
+union 
+    select first_name from employees
+    order by surname desc
+
 -- 4 records: a b c d (distinct)
 select pname from p
 union
