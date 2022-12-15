@@ -31,3 +31,18 @@ where exists
     select * from people2
     where age > 30
 )
+
+select * from Persons p
+where exists 
+(
+    select * from Hobbies
+    where Id = p.HobbyId
+)
+
+-- not exists
+select * from Persons p
+where not exists 
+(
+    select * from Hobbies
+    where Id = p.HobbyId
+)

@@ -22,5 +22,8 @@ create table Persons6
     constraint NewConstr6 unique (Id, FirstName)
 )
 
+alter table Persons6
+drop constraint NewConstr6
+
 insert into Persons6 (Age, HobbyId) values (19, 2) -- if age < 18 wont work
 select * from Persons6

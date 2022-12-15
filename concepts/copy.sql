@@ -6,6 +6,14 @@ from Persons
 select *
 from PersonsCopy
 
+-- copy only column
+select FirstName into 
+names from 
+Persons 
+where FirstName is not null
+
+select * from names
+
 -- empty table copy
 select *
 into PersonsCopy2
