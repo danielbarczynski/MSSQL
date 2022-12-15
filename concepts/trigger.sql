@@ -24,7 +24,19 @@ alter trigger tr_people1_insert on people1
 after insert as 
 select pname, age from inserted
 
-insert into people1 values ('wojtek', 15)
+insert into people1 values ('Tino', 33)
+-- with declaration
+go
+create trigger tr_people2_insert on people2
+after insert as 
+begin
+    select pname, age from inserted
+    declare @pname varchar(30);
+    set @pname = (select pname from inserted)
+    print @pname
+end
+
+insert into people2 values ('Tino', 33)
 
 -- more complex trigger
 go
