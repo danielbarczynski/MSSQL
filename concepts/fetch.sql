@@ -42,8 +42,7 @@ BEGIN
     PRINT 'Name: ' + @FirstName 
 
     -- This is executed as long as the previous fetch succeeds.  
-    FETCH NEXT FROM contact_cursor  
-   INTO @FirstName;
+    FETCH NEXT FROM contact_cursor INTO @FirstName;
 END
 
 CLOSE contact_cursor;

@@ -9,7 +9,7 @@ select * from people2
 select * from people1
 where age > any 
 (
-select age from people2
+    select age from people2
 )
 
 -- The ALL operator:
@@ -19,7 +19,7 @@ select age from people2
 select * from people1
 where age > all 
 (
-select age from people2
+    select age from people2
 )
 
 -- The EXISTS operator is used to test for the existence of any record in a subquery.
