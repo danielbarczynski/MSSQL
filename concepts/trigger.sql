@@ -56,3 +56,13 @@ values
 
 select * from orders
 
+-- protect table/database, or just add foreign key or constraint
+go
+create trigger tr_people1_drop on people1
+for delete as 
+print 'you cant delete it'
+rollback transaction 
+
+-- u can truncate or drop it tho
+truncate table people1
+select * from people1
