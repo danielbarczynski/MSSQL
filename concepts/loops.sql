@@ -5,7 +5,11 @@ while @i < 20
 begin
     set @i = @i + 1;
 	print @i;
+if (@i >= 13)
+    break;
+else
+    continue;
 end
 
-select * from people2
+
 
