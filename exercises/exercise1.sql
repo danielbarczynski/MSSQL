@@ -1,3 +1,9 @@
+create database test;
+go
+
+select name from sys.databases;
+go
+
 -- constraint
 create table Persons4
 (
