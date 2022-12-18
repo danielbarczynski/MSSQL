@@ -4,6 +4,10 @@ go
 select name from sys.databases;
 go
 
+use university; -- use desired database
+select * from information_schema.tables
+go
+
 -- constraint
 create table Persons4
 (
