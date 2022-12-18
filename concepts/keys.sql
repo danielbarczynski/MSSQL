@@ -1,6 +1,8 @@
 -- PRIMARY KEY - A combination of a NOT NULL and UNIQUE. Uniquely identifies each row in a table
+--* with primary key we don't have to specify not null property
 -- FOREIGN KEY - Prevents actions that would destroy links between tables foreign key
 -- so it has resticr as default behavior
+
 create table Persons
 (
     Id int identity primary key,
