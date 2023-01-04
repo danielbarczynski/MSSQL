@@ -28,3 +28,25 @@ end
 go
 select dbo.AddNumber(40, 66)
 drop function AddNumber
+
+--* you can use select in function as return
+go
+alter function funcsel()
+returns table as 
+return select * from people2;
+
+go
+select * from dbo.funcsel()
+
+--* but not in the body (same insert into)
+go
+create function insertpeople(@person varchar(30))
+returns varchar (30) as 
+begin 
+    -- insert into people2 values (@person); -- cannot use in function
+    -- select * from people2; -- also cannot use
+    return @person;
+end
+
+go
+select dbo.insertpeople('damian');

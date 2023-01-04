@@ -12,6 +12,8 @@ go
 sel
 
 -- insert into procedure
+--* difference is procedure allows select and DML (insert/update/delete) whereas function is not
+--* funciont can be called with select, procedure with execute
 go
 create procedure AddHobby
     @HobbyName varchar (30)
@@ -22,3 +24,12 @@ values
 
 execute AddHobby 'Cars'
 execute AddHobby 'Swimming'
+
+-- procedure like a function
+go
+alter procedure sp_logic @num int, @num2 int as 
+return @num + @num2;
+
+declare @result int;
+exec @result = sp_logic 4, 3;
+print @result;
