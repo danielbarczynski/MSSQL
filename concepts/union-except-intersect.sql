@@ -12,6 +12,14 @@ create table p2 ( pname varchar(10))
 insert into p values ('a'), ('a'), ('b'), ('c') 
 insert into p2 values ('b'), ('b'), ('c'), ('d') 
 
+--* you can combine tables with different column names
+    select first_name
+    from students
+union
+    select surname
+    from employees
+order by first_name desc
+
 -- union (distinct) 40 records
     select surname
     from students

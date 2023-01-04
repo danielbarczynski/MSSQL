@@ -1,9 +1,13 @@
---CROSS JOIN (ka¿dy rekord z ka¿dym)
+-- easy example
+select FirstName, h.HobbyName from Persons p
+join Hobbies h on h.Id = p.Id
+
+--CROSS JOIN (kaï¿½dy rekord z kaï¿½dym)
 select *
 from modules 
 cross join students
 
--- INNER JOIN (czêœæ wspólna) INNER JOIN = JOIN
+-- INNER JOIN (czï¿½ï¿½ wspï¿½lna) INNER JOIN = JOIN
 --58 records (the order in query doesn't matter)
 select *
 from students s
@@ -14,14 +18,14 @@ from student_grades
 select *
 from students
 
--- LEFT JOIN (podpiêcie do lewej tablicy (students)  prawej (st_grades) 
+-- LEFT JOIN (podpiï¿½cie do lewej tablicy (students)  prawej (st_grades) 
 --(72 rekordy 14 nulli w st_grades, bo uwzglednia takze studentow, ktorych nie ma w st_grades)
 select *
 from students s
     left join student_grades sm on s.student_id=sm.student_id
 -- where module_id is not null -- with this 58 records again
 
--- RIGHT JOIN (podpiêcie do prawej (st_grades) lewej (students) 
+-- RIGHT JOIN (podpiï¿½cie do prawej (st_grades) lewej (students) 
 -- 58 records - all from just student_grades 
 select *
 from students s
