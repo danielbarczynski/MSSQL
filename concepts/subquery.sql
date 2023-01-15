@@ -12,8 +12,8 @@ where age > (
 )
 
 --* CORRELATED subquery cannot be run idependently without the main query
--- this wont work without exists 
--- "Only one expression can be specified in the select list when the subquery is not introduced with EXISTS."
+--! this wont work without exists 
+--! "Only one expression can be specified in the select list when the subquery is not introduced with EXISTS."
 select * from Persons p
 where Id in 
 (

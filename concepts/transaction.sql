@@ -3,21 +3,20 @@
 -- If any of the tasks fail, the transaction fails. Therefore, a transaction has only two results: success or failure. 
 
 -- the simples transaction
-update people1 
-set Age = 22
-where pname = 'Daniel'
-
+update people2
+set Age = 23
+where pname = 'Kate'
 -- explicit and multiple transactions
 begin transaction 
-update people1 
+update people2
 set Age = 23
-where pname = 'Daniel'
+where pname = 'Kate'
 update people2 
 set Age = 40
-where pname = 'Josh'
+where pname = 'Joshs'
 commit 
 
-select * from people1
+select * from people2
 
 -- rollback
 --* transaction cannot be rolled back after a commit statement is executed
@@ -44,9 +43,9 @@ go
   
 declare @transactionname varchar(20) = 'transaction1';  
   
-begin tran @transactionname  
+begin transaction @transactionname  
        insert into valuetable values (1),(2);  
-rollback tran @transactionname;  
+rollback transaction @transactionname;  
   
 insert into valuetable values (3),(4);  
   
@@ -58,7 +57,7 @@ drop table valuetable;
 begin transaction tran_people2_delete
 save transaction before_deletion
 delete people2 
-where Age > 39
+where Age > 32
 commit transaction tran_people2_delete
 
 -- rollbacking to savepoint
